@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <!-- here href is a link refresh so every time the app is started and state might be lost-->
+        <!-- routerLink is used instead of href and we can pass the path in any of the below ways -->
+        <!-- / - full path but no, ./, ../ is relative path related to the component where it is present -->
+        <!-- routerLinkActive is used to set the css class on the link which is active -->
+        <!-- the way routerLinkActive checks which is active is by examining the url and as / is by default so home is always active -->
+        <!-- routerLinkActiveOptions with exact is passed so that it checks the full path instead of some part -->
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="servers">Servers</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <!-- <a routerLink="/users">Users</a> -->
+          <!-- we can pass array of url paths -->
+          <a [routerLink]="['users']">Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- the place where you want to display routed components -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
